@@ -1,0 +1,29 @@
+.pomodoro-container {
+  position: absolute;
+  overflow: hidden;
+  top: 10rem;
+  left: 30rem;
+  height: 60vh;
+  width: 80vh;
+  background-color: #333;
+  border-radius: 5rem;
+}
+
+#timer {
+  position: relative;
+  top: 10rem;
+  text-align: center;
+  font-size: 5rem;
+}
+
+#section-container {
+  position: relative;
+  top: 15rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+#start, #short-break, #long-break, #pause {
+  padding: 0.8rem;
+  margin: 1rem;
+}
