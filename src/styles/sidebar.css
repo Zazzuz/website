@@ -96,6 +96,10 @@
     width: 2vh;
   }
 
+  .sidebar {
+    width: 2vh;
+  }
+
   .sidebar-container.collapsed {
     width: 10px;
   }

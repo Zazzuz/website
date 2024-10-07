@@ -1,0 +1,73 @@
+#todo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+  width: 20vw;
+  max-width: 50vw;
+  background-color: rgb(27, 26, 85);
+  border-radius: 10px;
+  position: absolute;
+  top: 10vh;
+  left: 20%;
+  transform: translateX(-30%);
+  flex-grow: 1;
+}
+
+h1 {
+  display: flex;
+  color: white;
+  top: 1rem;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: .5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 1rem;
+  font-size: 1rem;
+  background-color:rgb(27, 26, 85);
+}
+
+#todo-add, #todo-remove{
+  padding: 10px 15px;
+  border: none;
+  background-color:rgb(83, 92, 145);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#todo-add:hover, #todo-remove:hover {
+  background-color:  rgb(7, 15, 43);
+  transition: 0.3s ease
+}
+
+#todo-container ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  width: 100%;
+  flex-direction: row;
+}
+
+#todo-container ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  flex: 0 1 45%; /* Allow items to grow and shrink, with a base width of 45% */
+  max-width: 45%; /* Set max-width to ensure they don't exceed half the container */
+  margin: 5px; /* Add margin for spacing */
+  color: white; /* Make list item text white for better contrast */
+}
