@@ -5,45 +5,116 @@
   overflow: hidden;
 }
 
-.sideBar {
-  position: sticky;
-  top: 0;
-  left: 0;
-  background-color: #333;
+/* Sidebar Container */
+.sidebar-container {
+  display: flex;
+  flex-direction: row;
   height: 100vh;
-  width: 200px;
-  padding: 0.4rem 0.8rem;
-  z-index: 1;
+  width: 250px;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.sidebar-container.collapsed {
+  width: 80px;
+}
+
+/* Sidebar Styles */
+.sideBar {
+  background-color:rgb(27, 26, 85);
+  color: white;
+  height: 100%;
+  padding: 1rem;
+  flex-grow: 1;
 }
 
 .sideBar ul {
+  position: relative;
   list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  line-height: 5rem;
+  padding: 0;
+  top: 5vh;
 }
 
 .sideBar ul li {
-  display: inline;
-  color: white;
-}
-
-.sideBar li a{
-  color: white;
+  margin: 1rem 0;
   padding: 1rem;
-  border-radius: 1rem;
 }
 
-.sideBar a:hover {
+.sideBar ul li:hover {
+  background-color:rgb(7, 15, 43);
+  border-radius: 2vh;
+  transition: 0.3s ease;
+}
+
+.sideBar ul li a {
+  color: white;
   text-decoration: none;
-  transition: background-color 0.5s ease;
-  background-color: rgb(43, 42, 42);
+  font-size: 1rem;
+  display: block;
 }
 
-#toggle-btn {
-  background-color:#333;
+/* Font size adjusts when sidebar is collapsed */
+.sidebar-container.collapsed .sideBar ul li a {
+  font-size: 0.8rem;
 }
 
-#toggle-btn:active {
+/* Toggle Button */
+.toggle-button {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  background-color: transparent;
+  color: white;
   border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.toggle-button:hover {
+  background-color: rgb(7, 15, 43);
+  transition: 0.3s ease;
+}
+
+/* SVG Size */
+.toggle-button img, #homeLink img, #statsLink img, #financeLink img, #weekplannerLink img, #todoLink img, #pomodoroLink img {
+  width: 20px;
+  height: 20px;
+}
+
+.link-text {
+  margin-left: 10px;
+  transition: opacity 0.3s;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .sidebar-container {
+    width: 2vh;
+  }
+
+  .sidebar-container.collapsed {
+    width: 10px;
+  }
+
+  .sideBar ul li a {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar-container {
+    width: 4vh;
+  }
+  
+  .sidebar-container.collapsed {
+    width: 10px;
+  }
+
+  .sideBar ul li a {
+    font-size: 0.8rem;
+  }
 }

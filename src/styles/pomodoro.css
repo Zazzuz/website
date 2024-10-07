@@ -1,29 +1,135 @@
+#root {
+  background-color: rgb(7, 15, 43);
+}
 .pomodoro-container {
-  position: absolute;
-  overflow: hidden;
-  top: 10rem;
-  left: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 60vh;
-  width: 80vh;
-  background-color: #333;
+  width: 40vw;
+  max-width: 50vw;
+  background-color: rgb(27, 26, 85);
   border-radius: 5rem;
+  position: absolute;
+  top: 20vh;
+  left: 50%;
+  transform: translateX(-30%);
+  flex-shrink: 1;
 }
 
 #timer {
-  position: relative;
-  top: 10rem;
   text-align: center;
-  font-size: 5rem;
+  font-size: 1.5rem;
 }
 
 #section-container {
   position: relative;
-  top: 15rem;
+  top: 1rem;
   text-align: center;
   padding: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-#start, #short-break, #long-break, #pause {
+#start, #short-break, #long-break, #pause, #reset, #work-button {
   padding: 0.8rem;
-  margin: 1rem;
+  margin: 0.4rem;
+  text-align: center;
+  width: 3vh;
+  min-width: 80px;
+  flex: 1 1 calc(25% - 1rem);
+  box-sizing: border-box;
+  background-color: rgb(83, 92, 145);
+}
+
+#start:hover, #short-break:hover, #long-break:hover, #pause:hover, #reset:hover, #work-button:hover{
+  background-color: rgb(7, 15, 43);
+  border: 1px solid rgb(7, 15, 43);
+  transition: 0.3s ease;
+}
+
+
+#start img, #pause img, #reset img {
+  width: 20px;
+  height: 20px;
+}
+
+
+@media (max-width: 768px) {
+  .pomodoro-container {
+    width: 80vw;
+    height: 50vh;
+    top: 8vh;
+  }
+
+  #timer {
+    font-size: 0.5rem;
+  }
+
+  #section-container {
+    position: relative;
+    top: 2rem;
+    text-align: center;
+    padding: .5rem;
+  }
+
+  #start, #short-break, #long-break, #pause, #reset, #work-button {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .pomodoro-container {
+    width: 95vw;
+    height: 40vh;
+    top: 5vh;
+  }
+
+  #timer {
+    font-size: 0.5rem;
+  }
+
+  #section-container {
+    flex-direction: column;
+    top: 1vh;
+    padding: .3rem;
+  }
+
+  #start, #short-break, #long-break, #pause, #reset, #work-button  {
+    padding: 0.2rem;
+    font-size: 0.7rem;
+    min-width: 5vh;
+    min-height: 6vh;
+    max-height: 4vh;
+    flex-shrink: 1;
+  }
+}
+
+@media (max-width: 320px) {
+  .pomodoro-container {
+    width: 100vw;
+    height: 35vh;
+  }
+
+  #section-container {
+    flex-direction: column;
+    top: 1vh;
+    padding: .3rem;
+  }
+
+  #timer {
+    font-size: 1rem;
+  }
+
+  #start, #short-break, #long-break, #pause, #reset, #work-button {
+    padding: 0.3rem;
+    font-size: 0.5rem;
+    flex-shrink: 1;
+  }
 }
