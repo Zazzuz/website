@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { PomodoroProvider } from './context/PomodoroContext';
+
 import Home from './pages/home';
 import Finance from './pages/finance';
 import PrivateRoute from './PrivateRoute';
@@ -20,17 +22,19 @@ root.render(
 function App() {
   return (
       <Router>
-        <div>
-          <Sidebar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/finance" element={<Finance/>} />
-            <Route path="/weekplanner" element={<Weekplanner/>} />
-            <Route path="/todo" element={<Todo/>} />
-            <Route path="/pomodoro" element={<Pomodoro/>} />
-            <Route path="/stats" element={<Stats/>} />
-          </Routes>
-        </div>
+        <PomodoroProvider>
+          <div>
+            <Sidebar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/finance" element={<Finance/>} />
+              <Route path="/weekplanner" element={<Weekplanner/>} />
+              <Route path="/todo" element={<Todo/>} />
+              <Route path="/pomodoro" element={<Pomodoro/>} />
+              <Route path="/stats" element={<Stats/>} />
+            </Routes>
+          </div>
+        </PomodoroProvider>
       </Router>
   )
 }

@@ -61,6 +61,15 @@
   height: 20px;
 }
 
+.tracker-container {
+  position: absolute;
+  display: flex;
+  top: 10%;
+  right: 10%;
+  background-color:rgb(83, 92, 145) ;
+
+}
+
 
 @media (max-width: 768px) {
   .pomodoro-container {
