@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/sidebar.css';
 import toggleIcon from '../assets/layout-sidebar.svg';
+import { useSidebar } from '../context/SidebarContext';
 import homeIcon from '../assets/house.svg';
 import statsIcon from '../assets/bar-chart.svg';
 import weekplannerIcon from '../assets/calendar3.svg';
@@ -9,18 +9,20 @@ import financeIcon from '../assets/credit-card.svg';
 import todoIcon from '../assets/clipboard-check.svg';
 import pomodoroIcon from '../assets/clock.svg';
 
+import '../styles/sidebar.css';
+
 function Sidebar() {
   // State to track if the sidebar is collapsed or expanded
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const{ isCollapsed, setIsCollapsed, toggleSidebar} = useSidebar();
 
-  // Toggle the sidebar's collapsed state
-  const toggleSidebar = () => {
-    setIsCollapsed(!isCollapsed);
-  };
-
+ 
   return (
     <div className={`sidebar-container ${isCollapsed ? 'collapsed' : ''}`}>
       <nav className="sideBar">
+        {/* Toggle Button */}
+        <button className="toggle-button" onClick={toggleSidebar}>
+          <img src={toggleIcon} alt="Toggle Sidebar" />
+        </button>
         <ul>
           <li id="homeLink">
             <Link to="/">
@@ -61,10 +63,7 @@ function Sidebar() {
         </ul>
       </nav>
       
-      {/* Toggle Button */}
-      <button className="toggle-button" onClick={toggleSidebar}>
-        <img src={toggleIcon} alt="Toggle Sidebar" />
-      </button>
+
     </div>
   );
 }

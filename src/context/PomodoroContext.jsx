@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 // Create the context
 const PomodoroContext = createContext();
 
@@ -11,48 +12,45 @@ export const usePomodoro = () => {
 
 // Pomodoro Provider component
 export const PomodoroProvider = ({ children }) => {
-    const [time, setTime] = useState(25 * 60); // 25 minutes in seconds
+    const [time, setTime] = useState(1 * 60); // 25 minutes in seconds
     const [isRunning, setIsRunning] = useState(false);
     const [timerLabel, setTimerLabel] = useState('Focus');
     const [intervalId, setIntervalId] = useState(null);
     const [focusedTime, setFocusedTime] = useState(0); // Total focused time in seconds
     const [startTime, setStartTime] = useState(null);
-    const [notification, setNotification] = useState(null);
 
-    const navigate = useNavigate();
-
-
-    const handlePomodoroComplete = () => {
-        setNotification('Pomodoro complete! Click to view.');
-    };
-
-    const handleNotificationClick = () => {
-        setNotification(null); // Clear notification
-        navigate('/pomodoro');
-    };
 
     // Start the timer
     const startTimer = () => {
         if (!isRunning) {
-        setIsRunning(true);
-        if (!startTime) setStartTime(Date.now()); // Record the start time only if not previously set
-
-        const id = setInterval(() => {
-            setTime((prevTime) => {
-            if (prevTime > 0) {
-                return prevTime - 1;
-            } else {
-                clearInterval(id);
-                setIsRunning(false);
-                setFocusedTime((prevFocusedTime) => prevFocusedTime + 25 * 60); // Increment focused time by the session duration
-                handlePomodoroComplete();
-                return 0; // Stop timer at 0
-            }
-            });
-        }, 1000);
-        setIntervalId(id);
+            setIsRunning(true);
+            const now = Date.now(); // Get the current time
+            if (!startTime) setStartTime(now); // Only set if it hasn't been set already
+    
+            const id = setInterval(() => {
+                setTime((prevTime) => {
+                    if (prevTime > 0) {
+                        return prevTime - 1;
+                    } else {
+                        clearInterval(id);
+                        setIsRunning(false);
+                        
+                        // Calculate actual focused time
+                        const endTime = Date.now();
+                        if (startTime) { // Check if startTime is set
+                            const sessionDuration = Math.floor((endTime - startTime) / 1000); // Duration in seconds
+                            setFocusedTime((prevFocusedTime) => prevFocusedTime + sessionDuration); // Add actual session duration to focused time
+                        }
+                        
+                        setStartTime(null); // Reset startTime for the next session
+                        return 0; // Stop timer at 0
+                    }
+                });
+            }, 1000);
+            setIntervalId(id);
         }
     };
+    
 
     // Pause the timer
     const pauseTimer = () => {
@@ -119,13 +117,7 @@ export const PomodoroProvider = ({ children }) => {
                 resetToWork,
             }}
         >
-            {notification && (
-                <Notification
-                    message={notification}
-                    style={{position: 'fixed', top: '100px', right: '20px', padding: '20px 30px', backgroundColor: '#eab119', color: '#fff', borderRadius: '5px', zIndex: 1000, boxShadow: '0 2px 4px rgba(0, 0, 0, 0.3)', fontSize: '18px'}}
-                    onClick={handleNotificationClick}
-                />
-            )}    
+            
             {children}
         </PomodoroContext.Provider>
     );

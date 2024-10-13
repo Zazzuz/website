@@ -3,9 +3,11 @@ import { usePomodoro } from '../context/PomodoroContext';
 import startIcon from '../assets/play.svg';
 import pauseIcon from '../assets/pause.svg';
 import resetIcon from '../assets/circle-arrow.svg';
+import { useSidebar } from '../context/SidebarContext';
 import '../styles/Pomodoro.css'
 
 function Pomodoro() {
+    const { isCollapsed } = useSidebar()
     const { time, timerLabel, focusedTime, startTimer, pauseTimer, switchToWork, startShortBreak, startLongBreak, resetToWork } = usePomodoro();
 
     // Format the countdown timer as mm:ss
@@ -17,9 +19,8 @@ function Pomodoro() {
 
     // Format the total focused time as Xh Ymins
     const formatFocusedTime = (time) => {
-        const hours = Math.floor(time / 3600); // Calculate total hours
-        const minutes = Math.floor((time % 3600) / 60); // Calculate total minutes
-        const seconds = time % 60; // Calculate total seconds;
+        const hours = Math.floor(time / 3600);
+        const minutes = Math.floor((time % 3600) / 60);
 
         return `${hours}h ${minutes}m`; // Always include hours
     };
