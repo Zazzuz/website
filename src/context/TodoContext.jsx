@@ -11,20 +11,26 @@ export const useTodo = () => {
 export const TodoProvider = ({ children }) => {
     const [tasks, setTasks] = useState([]); // State to hold the tasks
     const [task, setTask] = useState(''); // State for the current input
+    const [category, setCategory] = useState(''); // State for the selected category
 
     const handleInputChange = (e) => {
         setTask(e.target.value); // Update task as user types
     };
 
-    // Add a new task with 'completed' property set to false
+    const handleCategoryChange = (e) => {
+        setCategory(e.target.value); // Update category as user selects
+    };
+
+    // Add a new task with 'completed' property set to false and the selected category
     const addTask = (e) => {
         e.preventDefault(); // Prevent form submission
         if (tasks.length >= 20) {
-            return;
+            return; // Limit tasks to 20
         }
-        if (task) {
-            setTasks([...tasks, { text: task, completed: false }]); // Add new task as an object
+        if (task && category) {
+            setTasks([...tasks, { text: task, completed: false, category }]); // Add new task as an object
             setTask(''); // Clear the input
+            setCategory(''); // Clear the category selection
         }
     };
 
@@ -36,9 +42,7 @@ export const TodoProvider = ({ children }) => {
 
     // Clear all tasks
     const clearTasks = () => {
-        if (tasks.length >= 1) {
-            setTasks([]);
-        }
+        setTasks([]); // Clear the tasks
     };
 
     // Toggle the completion status of a task by index
@@ -46,7 +50,7 @@ export const TodoProvider = ({ children }) => {
         const newTasks = tasks.map((task, i) =>
             i === index ? { ...task, completed: !task.completed } : task
         );
-        setTasks(newTasks);
+        setTasks(newTasks); // Update tasks with the toggled completed status
     };
 
     return (
@@ -56,7 +60,10 @@ export const TodoProvider = ({ children }) => {
                 setTasks,
                 task,
                 setTask,
+                category,
+                setCategory,
                 handleInputChange,
+                handleCategoryChange,
                 addTask,
                 removeTask,
                 clearTasks,
