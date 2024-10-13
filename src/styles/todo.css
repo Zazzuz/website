@@ -96,6 +96,9 @@
 
 .category {
   margin-left: 5em;
+  background-color: rgb(7, 15, 43);
+  padding: 0.7rem;
+  border-radius: 0.8rem;
 }
 
 .category-select {
@@ -122,6 +125,7 @@
 }
 
 .todo-save-button {
+  background-color: rgb(7, 15, 43);
   color: rgba(255, 255, 255, 0.76);
   margin-left: 40px;
   padding: 5px 12px;
@@ -129,6 +133,7 @@
 }
 
 .todo-cancel-button {
+  background-color: rgb(7, 15, 43);
   color: rgba(255, 255, 255, 0.76);
   margin-left: 10px;
   padding: 5px 12px;
@@ -136,6 +141,7 @@
 }
 
 .todo-remove-button {
+  background-color: rgb(7, 15, 43);
   color: rgba(255, 255, 255, 0.76);
   margin-left: 40px;
   padding: 5px 12px;
@@ -144,12 +150,15 @@
 
 .todo-edit-button {
   color: rgba(255, 255, 255, 0.76);
+  background-color: rgb(7, 15, 43);
   margin-left: 10px;
   padding: 5px 12px;
   font-size: 1em;
 }
 
 .todo-complete-button {
+  color: rgba(255, 255, 255, 0.76);
+  background-color: rgb(7, 15, 43);
   margin-left: 10px;
   padding: 5px 12px;
   font-size: 1em;

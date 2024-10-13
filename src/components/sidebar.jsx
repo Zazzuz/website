@@ -8,6 +8,7 @@ import weekplannerIcon from '../assets/calendar3.svg';
 import financeIcon from '../assets/credit-card.svg';
 import todoIcon from '../assets/clipboard-check.svg';
 import pomodoroIcon from '../assets/clock.svg';
+import settingsIcon from '../assets/settings.svg'
 
 import '../styles/sidebar.css';
 
@@ -58,6 +59,12 @@ function Sidebar() {
             <Link to="/finance">
               <img src={financeIcon} alt="Finance" />
               <span className={`link-text ${isCollapsed ? 'hidden' : ''}`}>Financial Tracker</span>
+            </Link>
+          </li>
+          <li id="settingsLink">
+            <Link to="/settings">
+              <img src={settingsIcon} alt="Settings" />
+              <span className={`link-text ${isCollapsed ? 'hidden' : ''}`}>Settings</span>
             </Link>
           </li>
         </ul>

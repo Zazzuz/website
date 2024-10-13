@@ -55,13 +55,10 @@
   color: white;
   text-decoration: none;
   font-size: 1rem;
-  display: block;
+  display: flex;
+  align-items: center;
 }
 
-/* Font size adjusts when sidebar is collapsed */
-.sidebar-container.collapsed .sideBar ul li a {
-  font-size: 0.8rem;
-}
 
 /* Toggle Button */
 .toggle-button {

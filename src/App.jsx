@@ -12,6 +12,8 @@ import Weekplanner from './pages/weekplanner';
 import Todo from './pages/todo';
 import Pomodoro from './pages/pomodoro';
 import Stats from './pages/stats';
+import Settings from './pages/settings';
+
 import ReactDOM from 'react-dom/client';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -36,6 +38,7 @@ function App() {
               <Route path="/todo" element={<Todo/>} />
               <Route path="/pomodoro" element={<Pomodoro/>} />
               <Route path="/stats" element={<Stats/>} />
+              <Route path="/settings" element={<Settings/>} />
             </Routes>
           </div>
         </PomodoroProvider>

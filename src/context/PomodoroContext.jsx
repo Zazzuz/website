@@ -12,7 +12,7 @@ export const usePomodoro = () => {
 
 // Pomodoro Provider component
 export const PomodoroProvider = ({ children }) => {
-    const [time, setTime] = useState(1 * 60); // 25 minutes in seconds
+    const [time, setTime] = useState(25 * 60); // 25 minutes in seconds
     const [isRunning, setIsRunning] = useState(false);
     const [timerLabel, setTimerLabel] = useState('Focus');
     const [intervalId, setIntervalId] = useState(null);

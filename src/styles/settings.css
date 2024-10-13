@@ -1,0 +1,237 @@
+/* Main settings page container */
+.settings-page-container {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  width: 100vw;
+  max-width: 40vw; /* Reduce width for a more centered, sleek appearance */
+  background-color: #1b1a55; /* Slightly darker for modern look */
+  border-radius: 2rem;
+  position: absolute;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+  overflow: hidden;
+}
+
+/* Navbar container */
+.settings-navbar-container {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Lighter border for better contrast */
+  margin-bottom: 1rem;
+}
+
+/* Navbar list */
+.settings-navbar {
+  list-style-type: none;
+  display: flex;
+  gap: 30px; /* More spacing between items for cleaner layout */
+  padding: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar items */
+.settings-navbar li {
+  cursor: pointer;
+  padding: 8px 0;
+  font-size: 1em;
+  color: #bbb;
+  position: relative;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+}
+
+/* Active tab style */
+.settings-navbar li.active {
+  color: #007bff; /* Blue color for active tab */
+  font-weight: 600;
+  border-bottom: 2px solid #007bff; /* Blue underline for active tab */
+}
+
+/* Hover effect */
+.settings-navbar li:hover {
+  color: #ffffff; /* White color on hover */
+}
+
+/* Content container for sections */
+.settings-content {
+  flex: 1;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  color: #fff;
+  overflow-y: auto;
+}
+
+
+.info-container h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+/* Input fields */
+.info-section input {
+  width: 30%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* Input hover/focus effects */
+.info-section input:focus {
+  border-color: #007bff; /* Blue border on focus */
+  outline: none;
+}
+
+.info-save-button, .notification-save-button {
+  margin-top: 1em;
+  background-color:rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 1em;
+  border: none;
+}
+
+.info-save-button:hover, .notification-save-button:hover {
+  background-color:#1b1a55;;
+  transition: 0.4s ease-in-out;
+  border: none;
+}
+
+/* Toggle switch container */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin-right: 10px;
+  margin: 0.6em;
+}
+
+/* Hide the default checkbox */
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider (toggle button) */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #8a8a8a;
+  transition: 0.4s;
+  border-radius: 34px;
+  border: 1px white;
+}
+
+/* The round slider handle */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* When checked, move the slider to the right */
+input:checked + .slider {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Move the slider (round part) to the right when checked */
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Add focus style for accessibility */
+input:focus + .slider {
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.05);;
+}
+
+/* Profile Picture Section */
+.profile-picture-section {
+  margin-top: 20px;
+}
+
+.profile-picture-preview {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(68, 68, 68, 0.568);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #888;
+  border-radius: 50%;
+}
+
+.file-input {
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.reset-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color:rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  background-color:#1b1a55;;
+}
+
+
+
+/* Responsive design: On smaller screens */
+@media (max-width: 768px) {
+  .settings-page-container {
+    max-width: 90vw;
+    height: auto;
+    padding: 1.5rem;
+  }
+
+  .settings-navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .settings-navbar-container {
+    justify-content: center;
+  }
+}
