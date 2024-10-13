@@ -66,8 +66,8 @@
 /* Toggle Button */
 .toggle-button {
   position: absolute;
-  top: 10px;
-  left: 0px;
+  top: 2vh;
+  left: 1vh;
   background-color: transparent;
   color: white;
   border: none;
@@ -87,7 +87,7 @@
 }
 
 .link-text {
-  margin-left: 10px;
+  margin-left: 2vh;
   transition: opacity 0.3s;
 }
 

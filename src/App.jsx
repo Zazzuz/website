@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { PomodoroProvider } from './context/PomodoroContext';
 import { SidebarProvider } from './context/SidebarContext';
+import { TodoProvider } from './context/TodoContext';
 
 import Home from './pages/home';
 import Finance from './pages/finance';
@@ -24,6 +25,7 @@ function App() {
   return (
       <Router>
         <SidebarProvider>  
+        <TodoProvider>
         <PomodoroProvider>
           <div>
             <Sidebar />
@@ -37,6 +39,7 @@ function App() {
             </Routes>
           </div>
         </PomodoroProvider>
+        </TodoProvider>
         </SidebarProvider>
       </Router>
   )
