@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider  } from './context/AuthContext';
 import { PomodoroProvider } from './context/PomodoroContext';
 import { SidebarProvider } from './context/SidebarContext';
 import { TodoProvider } from './context/TodoContext';
@@ -7,6 +8,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { gapi } from 'gapi-script';
 
 import Home from './pages/home';
+import Login from './pages/login';
 import Finance from './pages/finance';
 import Sidebar from './components/sidebar';
 import Weekplanner from './pages/weekplanner';
@@ -23,23 +25,25 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <QueryClientProvider client={queryClient}>
     <React.StrictMode>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </React.StrictMode>
   </QueryClientProvider>
 );
 
 function App() {
-  const CLIENT_ID = '525306354667-ralakjfn5q052l6917b5v548ruiaf2jm.apps.googleusercontent.com';
-  const API_KEY = 'AIzaSyCoRMIfAoBJGotUgZxwgn87DMasBl6bHKs';
-  const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-  const SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+  const CLIENT_ID = import.meta.env.VITE_GOOGLE_ID;
+  const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
+  const DISCOVERY_DOCS = import.meta.env.VITE_DISCOVERY_DOCS;
+  const SCOPES = import.meta.env.VITE_SCOPES;
   // State to hold events
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
     const loadGapi = () => {
       const script = document.createElement('script');
-      script.src = 'https://apis.google.com/js/api.js';
+      script.src = import.meta.env.VITE_GOOGLE_SRC;
       script.async = true;
       document.body.appendChild(script);
       script.onload = () => {
@@ -100,26 +104,31 @@ function App() {
   };
 
   return (
-    <Router>
-      <SidebarProvider>  
-        <TodoProvider>
-          <PomodoroProvider>
-            <div>
-              <Sidebar />
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/finance" element={<Finance />} />
-                <Route path="/weekplanner" element={<Weekplanner events={events} />} />
-                <Route path="/todo" element={<Todo />} />
-                <Route path="/pomodoro" element={<Pomodoro />} />
-                <Route path="/stats" element={<Stats />} />
-                <Route path="/settings" element={<Settings />} />
-              </Routes>
-            </div>
-          </PomodoroProvider>
-        </TodoProvider>
-      </SidebarProvider>
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <Router>
+          <SidebarProvider>  
+            <TodoProvider>
+              <PomodoroProvider>
+                <div>
+                  <Sidebar />
+                  <Routes>
+                    <Route path="/" element={<PrivateRoute><Home/></PrivateRoute>} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/finance" element={<PrivateRoute><Finance /></PrivateRoute>} />
+                    <Route path="/weekplanner" element={<PrivateRoute><Weekplanner events={events} /></PrivateRoute>} />
+                    <Route path="/todo" element={<PrivateRoute><Todo /></PrivateRoute>} />
+                    <Route path="/pomodoro" element={<PrivateRoute><Pomodoro /></PrivateRoute>} />
+                    <Route path="/stats" element={<PrivateRoute><Stats /></PrivateRoute>} />
+                    <Route path="/settings" element={<PrivateRoute><Settings /></PrivateRoute>} />
+                  </Routes>
+                </div>
+              </PomodoroProvider>
+            </TodoProvider>
+          </SidebarProvider>
+        </Router>
+      </AuthProvider>
+    </QueryClientProvider>
   );
 }
 
