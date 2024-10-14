@@ -1,0 +1,151 @@
+/* Overall root styles */
+#root {
+  background-color: rgb(7, 15, 43);
+}
+
+/* Calendar container styles */
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 60vh;
+  width: 50vw;
+  max-width: 60vw;
+  background-color: rgb(27, 26, 85);
+  border-radius: 1.5rem;
+  position: relative;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+}
+
+/* Header styles */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  color: white;
+  font-size: 2rem;
+}
+
+/* Day names styles */
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 1rem;
+  gap: 3.5rem;
+}
+
+.day {
+  padding: 0.5rem;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+/* Date grid styles */
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+  gap: 0;
+}
+
+/* Individual date styles */
+.date {
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid rgb(83, 92, 145);
+  background-color: rgb(37, 37, 70);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.date:hover {
+  background-color: rgb(83, 92, 145);
+}
+
+/* Button styles */
+.prev,
+.next {
+  padding: 0.5rem 1rem;
+  background-color: rgb(83, 92, 145);
+  border: none;
+  border-radius: 0.5rem; 
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgb(7, 15, 43);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .calendar-container {
+      width: 80vw;
+      height: 70vh;
+  }
+
+  h2 {
+      font-size: 1.5rem;
+  }
+
+  .prev, .next {
+      font-size: 0.9rem;
+  }
+
+  .day {
+      font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-container {
+      width: 95vw;
+      height: 60vh;
+  }
+
+  h2 {
+      font-size: 1.2rem;
+  }
+
+  .prev, .next {
+      font-size: 0.8rem;
+  }
+
+  .day {
+      font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .calendar-container {
+      width: 100vw;
+      height: 50vh;
+  }
+
+  h2 {
+      font-size: 1rem;
+  }
+
+  .prev, .next {
+      font-size: 0.7rem;
+  }
+
+  .day {
+      font-size: 0.7rem;
+  }
+}

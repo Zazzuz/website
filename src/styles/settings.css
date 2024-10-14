@@ -68,16 +68,42 @@
   overflow-y: auto;
 }
 
-
 .info-container h1 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: #ffffff;
 }
 
+/* Flexbox container for the form and profile picture */
+.info-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start; /* Align content at the top */
+  flex-wrap: wrap; /* Allows the content to wrap on smaller screens */
+}
+
+/* Input fields section */
+.input-fields {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%; /* Full width in smaller screens */
+}
+
+/* Profile picture section */
+.profile-picture-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Input fields */
 .info-section input {
-  width: 30%;
+  width: 80%;
+  max-width: 8wv;
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ddd;
@@ -93,84 +119,27 @@
   outline: none;
 }
 
+/* Save button */
 .info-save-button, .notification-save-button {
   margin-top: 1em;
-  background-color:rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.76);
   font-size: 1em;
   border: none;
+  padding: 0.8em 1.3em;
+  border-radius: 0.5em;
+  width: 100%;
+  max-width: 5em;
 }
 
 .info-save-button:hover, .notification-save-button:hover {
-  background-color:#1b1a55;;
+  background-color: #1b1a55;
   transition: 0.4s ease-in-out;
   border: none;
 }
 
-/* Toggle switch container */
-.toggle-switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 24px;
-  margin-right: 10px;
-  margin: 0.6em;
-}
-
-/* Hide the default checkbox */
-.toggle-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider (toggle button) */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #8a8a8a;
-  transition: 0.4s;
-  border-radius: 34px;
-  border: 1px white;
-}
-
-/* The round slider handle */
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 18px;
-  width: 18px;
-  left: 4px;
-  bottom: 3px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-/* When checked, move the slider to the right */
-input:checked + .slider {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-/* Move the slider (round part) to the right when checked */
-input:checked + .slider:before {
-  transform: translateX(26px);
-}
-
-/* Add focus style for accessibility */
-input:focus + .slider {
-  box-shadow: 0 0 1px rgba(255, 255, 255, 0.05);;
-}
 
 /* Profile Picture Section */
-.profile-picture-section {
-  margin-top: 20px;
-}
-
 .profile-picture-preview {
   width: 120px;
   height: 120px;
@@ -204,8 +173,8 @@ input:focus + .slider {
 
 .reset-button {
   margin-top: 10px;
-  padding: 5px 10px;
-  background-color:rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
   color: white;
   border: none;
   border-radius: 5px;
@@ -213,10 +182,8 @@ input:focus + .slider {
 }
 
 .reset-button:hover {
-  background-color:#1b1a55;;
+  background-color: #1b1a55;
 }
-
-
 
 /* Responsive design: On smaller screens */
 @media (max-width: 768px) {
@@ -233,5 +200,20 @@ input:focus + .slider {
 
   .settings-navbar-container {
     justify-content: center;
+  }
+
+  .info-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .input-fields {
+    width: 100%;
+  }
+
+  .profile-picture-section {
+    width: 100%;
+    align-items: center;
   }
 }

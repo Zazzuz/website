@@ -22,6 +22,7 @@ function Settings() {
       reader.readAsDataURL(file); // Convert the image to base64 string for preview
     }
   };
+  
 
   // Optional: Handle reset profile image
   const handleImageReset = () => {
@@ -44,9 +45,21 @@ function Settings() {
           <div className='info-container'>
             <h1>User Settings</h1>
 
+            {/* Flex container for profile picture and form fields */}
+            <div className='info-section'>
+              {/* Other User Settings */}
+              <div className='input-fields'>
+                <div className='info-section'>
+                  <input type="text" placeholder="Enter your name" className='name-input' />
+                </div>
+                <div className='info-section'>
+                  <input type="email" placeholder="Enter your email" className='email-input' />
+                </div>
+                <button className='info-save-button'>Save</button>
+              </div>
+
             {/* Profile Picture Upload Section */}
             <div className='profile-picture-section'>
-              <h2>Profile Picture</h2>
               <div className='profile-picture-preview'>
                 {/* Preview the selected profile image */}
                 {imagePreview ? (
@@ -63,23 +76,12 @@ function Settings() {
                 className="file-input"
               />
 
-              {/* Optional: Button to reset/remove the profile picture */}
-              {profileImage && (
-                <button onClick={handleImageReset} className="reset-button">
-                  Remove Profile Picture
-                </button>
-              )}
+                {/* Optional: Button to reset/remove the profile picture */}
+                {profileImage && (
+                  <button onClick={handleImageReset} className="reset-button">Remove</button>
+                )}
+              </div>
             </div>
-
-            {/* Other User Settings */}
-            <div className='info-section'>
-              <input type="text" placeholder="Enter your name" className='name-input' />
-            </div>
-            <div className='info-section'>
-              <input type="email" placeholder="Enter your email" className='email-input' />
-            </div>
-
-            <button className='info-save-button'>Save</button>
           </div>
         </div>
       )}
@@ -88,6 +90,7 @@ function Settings() {
       {activeTab === 'Notifications' && (
         <div className="settings-content active">
           {/* Notification settings content */}
+          
         </div>
       )}
     </div>

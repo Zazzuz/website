@@ -1,0 +1,177 @@
+#root {
+  background-color: rgb(7, 15, 43);
+}
+
+.finance-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 80vh;
+  width: 50vw;
+  max-width: 60vw;
+  background-color: rgb(27, 26, 85);
+  border-radius: 1.5rem;
+  position: absolute;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+}
+
+h1 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#expense-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.input-row {
+  display: flex;
+  align-items: center; 
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  border: 1px solid rgb(83, 92, 145);
+  border-radius: 0.5rem;
+  background-color: rgb(37, 37, 70);
+  color: white;
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.finance-btn {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  background-color: rgb(83, 92, 145);
+  border: none;
+  border-radius: 0.5rem; 
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.finance-btn:hover {
+  background-color: rgb(7, 15, 43);
+}
+
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus {
+  outline: none;
+  border: 1px solid rgb(7, 15, 43);
+  background-color: rgb(7, 15, 43);
+}
+
+
+.expense-table {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
+}
+
+table {
+  width: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid rgb(83, 92, 145);
+  color: white;
+}
+
+.total-amount {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.filter {
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .finance-container {
+    width: 80vw; /* Increased width for smaller screens */
+    height: 70vh; /* Adjusted height */
+  }
+
+  h1 {
+    font-size: 1.5rem; /* Smaller title size */
+  }
+
+  button {
+    font-size: 0.9rem; /* Smaller button text size */
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  select {
+    font-size: 0.9rem; /* Smaller input text size */
+  }
+}
+
+@media (max-width: 480px) {
+  .finance-container {
+    width: 95vw; /* Almost full width */
+    height: 60vh; /* Height adjusted */
+  }
+
+  h1 {
+    font-size: 1.2rem; /* Further reduced title size */
+  }
+
+  button {
+    font-size: 0.8rem; /* Smaller button text size */
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  select {
+    font-size: 0.8rem; /* Smaller input text size */
+  }
+}
+
+@media (max-width: 320px) {
+  .finance-container {
+    width: 100vw; /* Full width */
+    height: 50vh; /* Height adjusted */
+  }
+
+  h1 {
+    font-size: 1rem; /* Minimum title size */
+  }
+
+  button {
+    font-size: 0.7rem; /* Smaller button text size */
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  select {
+    font-size: 0.7rem; /* Smaller input text size */
+  }
+}

@@ -49,16 +49,16 @@ function Sidebar() {
               <span className={`link-text ${isCollapsed ? 'hidden' : ''}`}>Week Planner</span>
             </Link>
           </li>
-          <li id="statsLink">
-            <Link to="/stats">
-              <img src={statsIcon} alt="Stats" />
-              <span className={`link-text ${isCollapsed ? 'hidden' : ''}`}>Stats</span>
-            </Link>
-          </li>
           <li id="financeLink">
             <Link to="/finance">
               <img src={financeIcon} alt="Finance" />
               <span className={`link-text ${isCollapsed ? 'hidden' : ''}`}>Financial Tracker</span>
+            </Link>
+          </li>
+          <li id="statsLink">
+            <Link to="/stats">
+              <img src={statsIcon} alt="Stats" />
+              <span className={`link-text ${isCollapsed ? 'hidden' : ''}`}>Stats</span>
             </Link>
           </li>
           <li id="settingsLink">
@@ -69,8 +69,6 @@ function Sidebar() {
           </li>
         </ul>
       </nav>
-      
-
     </div>
   );
 }

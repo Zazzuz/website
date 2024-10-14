@@ -41,7 +41,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 1px solid rgb(83, 92, 145);
 }
 
 .add-todo-input {
@@ -56,24 +56,6 @@
   height: 1.3rem;
 }
 
-.todo-add-button {
-  height: 40px;
-  color: rgba(255, 255, 255, 0.76);
-  background-color: rgb(7, 15, 43);
-  padding: 5px 24px;
-  font-size: 1em;
-  margin-bottom: 20px;
-}
-
-.todo-clear-button {
-  color: rgba(255, 255, 255, 0.76);
-  background-color: rgb(7, 15, 43);
-  height: 40px;
-  padding: 5px 24px;
-  font-size: 1em;
-  margin-top: 5px;
-}
-
 .todo-list ul {
   margin-top: 0;
   list-style: none;
@@ -85,7 +67,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 1px solid rgb(83, 92, 145);
   margin-left: -40px;
   cursor: pointer;
 }
@@ -96,7 +78,6 @@
 
 .category {
   margin-left: 5em;
-  background-color: rgb(7, 15, 43);
   padding: 0.7rem;
   border-radius: 0.8rem;
 }
@@ -124,44 +105,32 @@
   align-items: center;
 }
 
-.todo-save-button {
-  background-color: rgb(7, 15, 43);
-  color: rgba(255, 255, 255, 0.76);
-  margin-left: 40px;
-  padding: 5px 12px;
-  font-size: 1em;
+.todo-save-button,
+.todo-add-button,
+.todo-remove-button,
+.todo-edit-button,
+.todo-complete-button,
+.todo-clear-button {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  background-color: rgb(83, 92, 145);
+  border: none;
+  border-radius: 0.5rem; 
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.todo-cancel-button {
+.todo-save-button:hover,
+.todo-add-button:hover,
+.todo-remove-button:hover,
+.todo-edit-button:hover,
+.todo-complete-button:hover,
+.todo-clear-button:hover {
   background-color: rgb(7, 15, 43);
-  color: rgba(255, 255, 255, 0.76);
-  margin-left: 10px;
-  padding: 5px 12px;
-  font-size: 1em;
-}
-
-.todo-remove-button {
-  background-color: rgb(7, 15, 43);
-  color: rgba(255, 255, 255, 0.76);
-  margin-left: 40px;
-  padding: 5px 12px;
-  font-size: 1em;
-}
-
-.todo-edit-button {
-  color: rgba(255, 255, 255, 0.76);
-  background-color: rgb(7, 15, 43);
-  margin-left: 10px;
-  padding: 5px 12px;
-  font-size: 1em;
-}
-
-.todo-complete-button {
-  color: rgba(255, 255, 255, 0.76);
-  background-color: rgb(7, 15, 43);
-  margin-left: 10px;
-  padding: 5px 12px;
-  font-size: 1em;
+  border: none;
+  outline: none;
 }
 
 .completed {
